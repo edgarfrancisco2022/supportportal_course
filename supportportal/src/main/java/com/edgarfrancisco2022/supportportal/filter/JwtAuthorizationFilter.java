@@ -20,6 +20,11 @@ import static org.springframework.http.HttpStatus.OK;
 
 @Component
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
+
+    /**
+     * CHECK *** when and where authentication with username and password happens?
+     */
+
     private JWTTokenProvider jwtTokenProvider;
 
     public JwtAuthorizationFilter(JWTTokenProvider jwtTokenProvider) {
