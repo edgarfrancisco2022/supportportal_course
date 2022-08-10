@@ -50,7 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // Gets UserDetails
         // Loads UserDetails
-        // Checks authentication with username and password ??
+        // Checks authentication with username and password stored in database ??
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 

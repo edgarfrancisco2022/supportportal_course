@@ -19,7 +19,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create # drops tables and creates new on restart
+      ddl-auto: update #create - drops tables and creates new on restart #update - keeps old tables on restart
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
