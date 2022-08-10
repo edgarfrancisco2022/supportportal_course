@@ -18,8 +18,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @Component
 public class JwtAuthenticationEntryPoint extends Http403ForbiddenEntryPoint {
     /**
-     * In case authentication fails
-     **** when and where is this used?
+     * Forbidden endpoint || you need to log in to access this page
      */
 
     @Override

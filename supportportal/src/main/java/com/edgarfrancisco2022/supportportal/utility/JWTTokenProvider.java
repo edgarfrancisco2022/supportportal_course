@@ -31,11 +31,22 @@ public class JWTTokenProvider {
      * Is this implemented in memory outside Spring Security ???
      */
 
+    /**
+     * Generate JWT Token
+     * Get claims of an user with a given token
+     * Checks weather token is valid
+     * Get subject **username
+     * Gets authentication to give it to Spring Security ??
+     */
+
     @Value("${jwt.secret}")
     private String secret;
 
     /**
      * Generate JWT Token
+     * Gets UserDetails from Spring Security??
+     * Quién llama a este método??? Tal vez on sign up???
+     * Donde lo guardaría en Spring Security Context????
      */
     public String generateJwtToken(UserPrincipal userPrincipal) {
         String[] claims = getClaimsFromUser(userPrincipal);
@@ -102,6 +113,7 @@ public class JWTTokenProvider {
 
     /**
      * Get subject **username
+     * retrieves from Spring Security Context??
      */
     public String getSubject(String token) {
         JWTVerifier verifier = getJWTVerifier();
@@ -109,7 +121,7 @@ public class JWTTokenProvider {
     }
 
     /**
-     * Gets authentication to give it Spring Security
+     * Gets authentication to give it to Spring Security ??
      ********* Es manual? ************
      ******** que 'details' saca del request? *********
      ******** de dónde viene HttpServletRequest? *********

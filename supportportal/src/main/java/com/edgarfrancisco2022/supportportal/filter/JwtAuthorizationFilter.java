@@ -22,7 +22,7 @@ import static org.springframework.http.HttpStatus.OK;
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
     /**
-     * CHECK *** when and where authentication with username and password happens?
+     *
      */
 
     private JWTTokenProvider jwtTokenProvider;
@@ -41,8 +41,9 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
                 filterChain.doFilter(request, response);
                 return;
             }
+            // If token is there
             String token = authorizationHeader.substring(TOKEN_PREFIX.length());
-            String username = jwtTokenProvider.getSubject(token);
+            String username = jwtTokenProvider.getSubject(token); //username
             if (jwtTokenProvider.isTokenValid(username, token) && SecurityContextHolder.getContext().getAuthentication() == null) {
                 List<GrantedAuthority> authorities = jwtTokenProvider.getAuthorities(token);
                 Authentication authentication = jwtTokenProvider.getAuthentication(username, authorities, request);

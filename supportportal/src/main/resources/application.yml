@@ -6,7 +6,9 @@ server:
   port: 8081
 #  error:
 #    whitelabel:
-#      enabled: false
+#      enabled: false #does not return the whitelabel error page, instead it lets the servlet handle the exception
+                     #which returns a simpler 404 error page
+
 
 spring:
   datasource:
@@ -21,7 +23,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+  #stops Spring from returning Whitelabel Error Page //one way of doing it
+  #you need to create an exception handler to handle NoHandlerFoundException.class
 #  mvc:
-#    throw-exception-if-no-handler-found: true
+#    throw-exception-if-no-handler-found: true #throws exception if no handler is found instead of handling itself
 #  resources:
-#    add-mappings: false
+#    add-mappings: false #do not create a mapping for unknown paths
